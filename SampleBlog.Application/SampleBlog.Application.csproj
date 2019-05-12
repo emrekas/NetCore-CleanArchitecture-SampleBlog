@@ -14,4 +14,8 @@
     <ProjectReference Include="..\SampleBlog.Persistence\SampleBlog.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Comments\Queries\" />
+  </ItemGroup>
+
 </Project>

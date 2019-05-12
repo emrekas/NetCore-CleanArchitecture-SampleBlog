@@ -2,7 +2,7 @@
 using SampleBlog.Domain.Entities;
 using System.Collections.Generic;
 
-namespace SampleBlog.Application.Posts.Commands
+namespace SampleBlog.Application.Posts.Commands.Create
 {
     public class CreatePostCommand : IRequest<int>
     {

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SampleBlog.Application.Posts.Commands;
+using SampleBlog.Application.Posts.Commands.Create;
 using SampleBlog.Application.Posts.Queries.GetAll;
 using SampleBlog.Application.Posts.Queries.GetById;
 
@@ -31,7 +31,7 @@ namespace SampleBlog.WebAPI.Controllers
             return Ok(posts);
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get([FromQuery]int id)
         {
             var getPostQuery = new GetPostQuery { Id = id };
             var post = await Mediator.Send(getPostQuery);

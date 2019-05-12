@@ -5,7 +5,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SampleBlog.Application.Posts.Commands
+namespace SampleBlog.Application.Posts.Commands.Create
 {
     public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, int>
     {
