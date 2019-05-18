@@ -29,8 +29,17 @@ namespace SampleBlog.WebAPI
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            //import redis cache
+            services.AddDistributedRedisCache(option =>
+            {
+                option.Configuration = "127.0.0.1";
+                option.InstanceName = "master";
+            });
+
+
             // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c => {
+            services.AddSwaggerGen(c =>
+            {
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",

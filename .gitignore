@@ -3,3 +3,15 @@
 ################################################################################
 
 /.vs/SampleBlog
+/SampleBlog.WebAPI/obj
+/SampleBlog.WebAPI/bin
+/SampleBlog.Persistence/obj
+/SampleBlog.Persistence/bin/
+/SampleBlog.Infrastructure/obj
+/SampleBlog.Infrastructure/bin
+/SampleBlog.Domain/obj
+/SampleBlog.Domain/bin
+/SampleBlog.Application/obj
+/SampleBlog.Application/bin
+/SampleBlog.Common/obj
+/SampleBlog.Common/bin
