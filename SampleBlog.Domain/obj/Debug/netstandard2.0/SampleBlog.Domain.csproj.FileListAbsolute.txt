@@ -6,3 +6,4 @@ C:\Users\repoleveD\Desktop\sampleblog\SampleBlog.Domain\obj\Debug\netstandard2.0
 C:\Users\repoleveD\Desktop\sampleblog\SampleBlog.Domain\obj\Debug\netstandard2.0\SampleBlog.Domain.AssemblyInfo.cs
 C:\Users\repoleveD\Desktop\sampleblog\SampleBlog.Domain\obj\Debug\netstandard2.0\SampleBlog.Domain.dll
 C:\Users\repoleveD\Desktop\sampleblog\SampleBlog.Domain\obj\Debug\netstandard2.0\SampleBlog.Domain.pdb
+C:\Users\repoleveD\Desktop\sampleblog\SampleBlog.Domain\obj\Debug\netstandard2.0\SampleBlog.Domain.csprojAssemblyReference.cache
