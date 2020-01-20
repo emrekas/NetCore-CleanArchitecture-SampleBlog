@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using SampleBlog.Persistence;
-using Swashbuckle.AspNetCore.Swagger;
 
 
 namespace SampleBlog.WebAPI
@@ -27,8 +27,6 @@ namespace SampleBlog.WebAPI
                                 options.UseSqlServer(Configuration.GetConnectionString("SampleBlogConnectionString")));
             services.AddMediatR(Application.AssemblyIdentifier.Get());
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
             //import redis cache
             services.AddDistributedRedisCache(option =>
             {
@@ -40,7 +38,7 @@ namespace SampleBlog.WebAPI
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info
+                c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
                     Title = "Test API",
@@ -52,18 +50,18 @@ namespace SampleBlog.WebAPI
             // Add service and create Policy with options
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials());
+                //options.AddPolicy("CorsPolicy",
+                //    builder => builder.AllowAnyOrigin()
+                //    .AllowAnyMethod()
+                //    .AllowAnyHeader()
+                //    .AllowCredentials());
             });
 
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -76,7 +74,6 @@ namespace SampleBlog.WebAPI
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();

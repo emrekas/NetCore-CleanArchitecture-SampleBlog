@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
@@ -43,7 +44,7 @@ namespace SampleBlog.WebAPI.Controllers
             }
             else
             {
-                existingTime = DateTime.UtcNow.ToString();
+                existingTime = DateTime.UtcNow.ToString(CultureInfo.InvariantCulture);
                 _distributedCache.SetString(cacheKey, existingTime);
                 cacheData = "Added to cache : " + existingTime;
             }
@@ -53,8 +54,8 @@ namespace SampleBlog.WebAPI.Controllers
 
             var anyModel = new
             {
-                cacheData = cacheData,
-                posts = posts
+                cacheData,
+                posts
             };
 
             return Ok(anyModel);

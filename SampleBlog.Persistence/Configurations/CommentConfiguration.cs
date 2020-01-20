@@ -16,8 +16,7 @@ namespace SampleBlog.Persistence.Configurations
                 .HasColumnType("varchar(360)");
             builder.Property(x => x.Email)
                 .HasColumnType("varchar(50)");
-            builder.Property(x => x.Status)
-                .HasColumnType("TINYINT");
+            builder.Property(x => x.Status);
 
             builder.HasOne(x => x.Post)
                 .WithMany(y => y.Comments)
